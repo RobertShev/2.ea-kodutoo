@@ -15,6 +15,9 @@ const TYPER = function () {
   this.word = null
   this.wordMinLength = 5
   this.guessedWords = 0
+	//lisasin counter ja points
+  this.counter = 0
+  this.points = 0
 
   this.init()
 }
@@ -60,9 +63,8 @@ TYPER.prototype = {
 	  console.log('2')
     this.generateWord()
     this.word.Draw()
-	//skoori arvutamine 
-
     window.addEventListener('keypress', this.keyPressed.bind(this))
+	this.startTime = new Date().getTime()
   },
 
   generateWord: function () {
@@ -70,26 +72,35 @@ TYPER.prototype = {
     const generatedWordLength = this.wordMinLength + parseInt(this.guessedWords / 5)
     const randomIndex = (Math.random() * (this.words[generatedWordLength].length - 1)).toFixed()
     const wordFromArray = this.words[generatedWordLength][randomIndex]
-
-    this.word = new Word(wordFromArray, this.canvas, this.ctx)///mingi nendest tahendab sona 
+	//lisasin word, et scori arvutada
+   this.word = new Word(wordFromArray, this.canvas, this.ctx)
   },
 
   keyPressed: function (event) {
 	  console.log('7')
     const letter = String.fromCharCode(event.which)
 
-    if (letter === this.word.left.charAt(0)) {
+     if (letter === this.word.left.charAt(0)) {
       this.word.removeFirstLetter()
-
       if (this.word.left.length === 0) {
         this.guessedWords += 1
+        if (this.counter > ((this.wordMinLength + parseInt(this.guessedWords / 5)) * 1000) / 2) {
+          this.points -= 5 
+        } else if (this.counter < ((this.wordMinLength + parseInt(this.guessedWords / 5)) * 1000) / 2) {
+          this.points += 10 //siin tuleb punkte juurde
+        }
+        this.counter = 0
+        if (this.guessedWords === 27) {
+          this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+          Endgame()
+		  //peale 27 arvatud sõna, on mäng läbi
+        }
 
         this.generateWord()
       }
-
-      this.word.Draw()
+    } else {
+      this.points -= 1 // võtab punkte maha iga valesti trükitud sõna eest
     }
-	
   }
 }
 
@@ -129,6 +140,25 @@ function structureArrayByWordLength (words) {
 
   return tempArray
   
+}
+
+
+function startGame () {
+  window.typer.points = 0
+  window.typer.counter = 0
+
+  /*const typer = new TYPER()
+  window.typer = typer*/
+}
+
+function endGame () {
+  let r = confirm('Mäng on läbi \n Sinu skoor on: ' + window.typer.points)
+  if (r == true) {
+    window.typer.guessedWords = 0
+    window.typer.points = 0
+  } else {
+    window.location.href = ''
+  }
 }
 
 window.onload = function () {
