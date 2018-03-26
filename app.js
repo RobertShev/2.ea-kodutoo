@@ -18,7 +18,6 @@ const TYPER = function () {
 	//lisasin counter ja points
   this.counter = 0
   this.points = 0
-
   this.init()
 }
 
@@ -73,7 +72,7 @@ TYPER.prototype = {
     const randomIndex = (Math.random() * (this.words[generatedWordLength].length - 1)).toFixed()
     const wordFromArray = this.words[generatedWordLength][randomIndex]
 	//lisasin word, et scori arvutada
-   this.word = new Word(wordFromArray, this.canvas, this.ctx)
+    this.word = new Word(wordFromArray, this.canvas, this.ctx)
   },
 
   keyPressed: function (event) {
