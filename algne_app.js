@@ -15,8 +15,7 @@ const TYPER = function () {
   this.word = null
   this.wordMinLength = 5
   this.guessedWords = 0
-  this.score = 0
-  this.combo = 0
+  this.points = 0
   this.init()
 }
 
@@ -61,6 +60,9 @@ TYPER.prototype = {
 	  console.log('2')
     this.generateWord()
     this.word.Draw()
+	
+	//skoori arvutamine 
+
     window.addEventListener('keypress', this.keyPressed.bind(this))
 	
   },
@@ -75,39 +77,25 @@ TYPER.prototype = {
   },
 
   keyPressed: function (event) {
-	console.log('7')
-	const letter = String.fromCharCode(event.which)
+	  console.log('7')
+    const letter = String.fromCharCode(event.which)
 
     if (letter === this.word.left.charAt(0)) {
-		this.word.removeFirstLetter()
-		this.combo += 1
-		this.guessedLetters += 1
-		if(this.combo > 8){
-			this.combo = 0
-		}
-	
-		this.score +=(this.guessedLetters+this.guessedWords)
-		//updatescore
-		if (this.word.left.length === 0) {
-			this.guessedWords += 1
-			this.score += (this.guessedLetters+this.guessedWords)*2
-			//updatescore
-				if(this.guessedWords == 30){
-					this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
-					gameFinish();
-				}
+      this.word.removeFirstLetter()
 
-			this.generateWord()
-		}
+      if (this.word.left.length === 0) {
+        this.guessedWords += 1
 
-    this.word.Draw()
+        this.generateWord()
+      }
+
+      this.word.Draw()
     }
 	
   }
-
+}
 
 /* WORD */
-//siin error : Uncaught SyntaxError: Unexpected token const line 111
 const Word = function (word, canvas, ctx) {
   this.word = word
   this.left = this.word
@@ -144,17 +132,6 @@ function structureArrayByWordLength (words) {
   return tempArray
   
 }
-
-+function checkNameInput() {
-  let x = document.getElementById("nameText").value;
-  if (document.getElementById("nameText").value != ""){
-    startGame()
-  } else {
-    alert("Name field is empty!")
-  }
-}
-//puudu veel update score, gameFinisgja gameStart
-
 
 window.onload = function () {
 	 console.log('6')
