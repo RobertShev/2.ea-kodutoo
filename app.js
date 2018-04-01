@@ -29,7 +29,7 @@ window.TYPER = TYPER
 
 TYPER.prototype = {
   init: function () {
-    this.canvas = document.getElementsByTagName('canvas')[0]//here gets canvas and fills it 
+    this.canvas = document.getElementsByTagName('canvas')[0]
     this.ctx = this.canvas.getContext('2d')
 
     this.canvas.style.width = this.WIDTH + 'px'
