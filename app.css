@@ -12,6 +12,7 @@
     text-align: center;
     position:fixed;
     transform: translate(-50%, -50%);
+    font-size: 200%;
 }
 #resultPage{
     top: 50%;
@@ -19,6 +20,7 @@
     text-align: center;
     position:fixed;
     transform: translate(-50%, -50%);
+    font-size: 150%;
 }
 #gamePage{
     top: 50%;
@@ -26,9 +28,14 @@
     text-align: center;
     position:fixed;
     transform: translate(-50%, -50%);
+    font-size: 150%;
 }
-#startBtn{
-    background-color: white;
-    color: black;
+
+.menuPage{
+	position:fixed;
+	bottom: 30%;
+	left: 50%;
+	text-align: center;
+	transform: translate(-50%, -50%);
 }
 
