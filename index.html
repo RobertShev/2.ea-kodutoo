@@ -1,20 +1,19 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
     <title>typer</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="app.css">
   </head>
   <body id="body" class="dayLight">
     <div id = 'startPage'>
       <h1 class="noMarginBelow">Menu</h1>
-      <a href = "#" onclick="document.getElementByid('startPage').style.display='none'; document.getElementById('gamePage').style.display='block';startGame()">Start Game</a><br>
-      <a href = "#" onclick="document.getElementByid('startPage').style.display='none'; document.getElementById('resultPage').style.display='block';showResult()">Top Results</a><br>
+      <a href = '#' onclick = "document.getElementById('startPage').style.display='none'; document.getElementById('gamePage').style.display='block';">Start Game</a><br>
+      <a href = '#' onclick = "document.getElementById('startPage').style.display='none'; document.getElementById('resultPage').style.display='block';">Top Results</a><br>
     </div>
     <div id = 'gamePage' style='display: none'>
         <script src="app.js"></script>
         <div id="score"></div>
-        <button id="startBtn" onclick="startGame()">Start Game</button>
         <canvas></canvas>
     </div>
     <div id = 'resultPage' style='display: none'>
