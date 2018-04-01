@@ -1,5 +1,9 @@
-/*Main*/
-
+/*Start Game*/
+function startGame(){
+  typer.start();
+}
+/*Show Results*/
+//
 
 /* TYPER */
 const TYPER = function () {
@@ -31,8 +35,8 @@ TYPER.prototype = {
     this.canvas.style.width = this.WIDTH + 'px'
     this.canvas.style.height = this.HEIGHT + 'px'
 
-    this.canvas.width = this.WIDTH * 2
-    this.canvas.height = this.HEIGHT * 2
+    this.canvas.width = this.WIDTH * 1
+    this.canvas.height = this.HEIGHT * 1
 
     this.loadWords()
   },

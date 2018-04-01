@@ -6,8 +6,29 @@
     margin-bottom:0;
 }
 
-#startPage #gamePage #resultPage{
+#startPage{
     top: 50%;
     left: 50%;
     text-align: center;
+    position:fixed;
+    transform: translate(-50%, -50%);
 }
+#resultPage{
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    position:fixed;
+    transform: translate(-50%, -50%);
+}
+#gamePage{
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    position:fixed;
+    transform: translate(-50%, -50%);
+}
+#startBtn{
+    background-color: white;
+    color: black;
+}
+
