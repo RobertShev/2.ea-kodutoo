@@ -3,24 +3,30 @@
   <head>
     <meta charset="UTF-8">
     <title>typer</title>
-    <style> 
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
-      html, body, canvas {
-        width: 100%;
-        height: 100%;
-      }
-      
-      canvas {
-        position: absolute;
-      }
-    </style>
-    <script src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
   </head>
-  <body>
-    <canvas></canvas>
+  <body class="dayLight">
+    <div id = 'startPage'>
+      <h1 class="noMarginBelow">Menu</h1>
+      <a href = "#" onclick="documentr.getElementByid('startPage'); document.getElementById('gamePage').style.display='block';startGame()">Start Game</a><br>
+      <a href = "#" onclick="documentr.getElementByid('startPage'); document.getElementById('resultPage').style.display='block';showResult()">Top Results</a><br>
+    </div>
+    <div id = 'gamePage'>
+        <script src="app.js"></script>
+        <canvas></canvas>
+    </div>
+    <div id = 'resultPage'>
+      <div id="result0"></div>
+      <div id="result1"></div>
+      <div id="result2"></div>
+      <div id="result3"></div>
+      <div id="result4"></div>
+      <div id="result5"></div>
+      <div id="result6"></div>
+      <div id="result7"></div>
+      <div id="result8"></div>
+      <div id="result9"></div>
+    </div>
+    
   </body>
 </html>
