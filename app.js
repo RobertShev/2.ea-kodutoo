@@ -1,9 +1,22 @@
+let solvedWords = 0;
+
+
+/*Score Counting*/
+function result (){
+  let date = new Date();
+  let time =date.getTime()/1000;
+  document.getElementById('timeLeft').innerHTML = "Time left : "+ time;
+  document.getElementById('result').innerHTML = "Current score : "+solvedWords;
+}
+
+/*Show Results*/
+//
+
 /*Start Game*/
 function startGame(){
   typer.start();
+  result();
 }
-/*Show Results*/
-//
 
 /* TYPER */
 const TYPER = function () {
@@ -70,7 +83,6 @@ TYPER.prototype = {
     const generatedWordLength = this.wordMinLength + parseInt(this.guessedWords / 5)
     const randomIndex = (Math.random() * (this.words[generatedWordLength].length - 1)).toFixed()
     const wordFromArray = this.words[generatedWordLength][randomIndex]
-
     this.word = new Word(wordFromArray, this.canvas, this.ctx)
   },
 
@@ -82,6 +94,7 @@ TYPER.prototype = {
 
       if (this.word.left.length === 0) {
         this.guessedWords += 1
+        solvedWords ++;
 
         this.generateWord()
       }
