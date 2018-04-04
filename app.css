@@ -39,4 +39,10 @@
 	transform: translate(-50%, -50%);
 }
 
+.night {
+  background: #545851;
+}
 
+.day {
+  background: #A2FB4E;
+}

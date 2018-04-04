@@ -7,7 +7,11 @@
     <script src="app.js"></script>
   </head>
   <body id="body" class="dayLight">
-    <div id = 'startPage'>
+   <input type="button" onclick="day();" value="Day mode" />
+   <input type="button" onclick="night();" value="Night mode" />
+   <input type="button" onclick="reset();" value="Reset" />
+   
+   <div id = 'startPage'>
       <h1 class="noMarginBelow">Menu</h1>
       <a href = '#' onclick = "document.getElementById('startPage').style.display='none'; document.getElementById('gamePage').style.display='block';startGame()">Start Game</a><br>
       <a href = '#' onclick = "document.getElementById('startPage').style.display='none'; document.getElementById('resultPage').style.display='block';">Top Results</a><br>

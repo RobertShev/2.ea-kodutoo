@@ -191,3 +191,23 @@ window.onload = function () {
   const typer = new TYPER()
   window.typer = typer
 }
+
+function day() {
+    body.className = "day";
+};
+
+function night() {
+    body.className = "night";    
+};
+
+function reset() {
+    body.className = "";
+};
+
+$(function() {
+    var button = $('input[type=button]');
+    button.on('click', function() {
+        button.not(this).removeAttr('disabled');
+        $(this).attr('disabled', '');
+    });
+});
