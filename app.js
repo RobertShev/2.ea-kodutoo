@@ -20,10 +20,9 @@ function result (){
     let gameResult = ((newWord.length*solvedWords)-timeLeft);
     document.getElementById('timeLeft').innerHTML = "Time left : " + timeLeft +"/30";
     document.getElementById('result').innerHTML = "Current score : " + gameResult;
-    document.addEventListener("keydown", function(event) {
-      //if enter pressed  
-      if(event.keyCode = 13){
-        //add here changing fonts if enter pressed
+    document.addEventListener("keydown", function(event) {  
+      if(event.keyCode == 13){
+        randomiseFont();
       }
     })
     if (timeLeft>29){
@@ -45,6 +44,12 @@ function result (){
   })
 }
 
+function randomiseFont(){
+  let fontArray = ["Courier New", "Arial Black", "Lucida Sans Unicode", "Trebuchet MS"];
+  let rand = fontArray[Math.floor(Math.random() * fontArray.length)];
+  document.getElementById("body").style.fontFamily = rand;
+}
+
 /*Show Results*/
 //
 function showResults(){
@@ -64,7 +69,7 @@ function startGame(){
 }
 function dayNight(){
       let currentTime = new Date().getHours();
-    if (7 <= currentTime && currentTime < 20) {//20
+    if (7 <= currentTime && currentTime < 20) {
         if (document.body.className = "day") {
             document.body.background = "https://images.unsplash.com/photo-1498932042873-e35fb6535a02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48808e8a3f27b79d9c17e6d69e6a3dfd&auto=format&fit=crop&w=1426&q=80";
     }
@@ -218,11 +223,3 @@ function night() {
 function reset() {
     body.className = "";
 };
-
-$(function() {
-    var button = $('input[type=button]');
-    button.on('click', function() {
-        button.not(this).removeAttr('disabled');
-        $(this).attr('disabled', '');
-    });
-});
