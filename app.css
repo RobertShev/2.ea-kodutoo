@@ -29,6 +29,7 @@
     position:fixed;
     transform: translate(-50%, -50%);
     font-size: 150%;
+	
 }
 
 .menuPage{
@@ -37,12 +38,19 @@
 	left: 50%;
 	text-align: center;
 	transform: translate(-50%, -50%);
+	
 }
 
-.night {
-  background: #545851;
+.day{
+	color:black;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
 
-.day {
-  background: #A2FB4E;
+.night{
+	color:white;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
 }
