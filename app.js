@@ -62,6 +62,20 @@ function startGame(){
   let helpTime = helpDate.getTime()/1000;
   result();
 }
+function dayNight(){
+      let currentTime = new Date().getHours();
+    if (7 <= currentTime && currentTime < 20) {//20
+        if (document.body.className = "day") {
+            document.body.background = "https://images.unsplash.com/photo-1498932042873-e35fb6535a02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48808e8a3f27b79d9c17e6d69e6a3dfd&auto=format&fit=crop&w=1426&q=80";
+    }
+    }
+    else {
+        if (document.body.className = "night") {
+            document.body.background = "https://images.unsplash.com/photo-1471047283799-ebd97acc0bc3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=74da19d4cfbd18c3c8ea0c8437d057e1&auto=format&fit=crop&w=1400&q=80";
+        }
+    }
+
+    }
 
 /* TYPER */
 const TYPER = function () {
@@ -190,6 +204,7 @@ function structureArrayByWordLength (words) {
 window.onload = function () {
   const typer = new TYPER()
   window.typer = typer
+  dayNight();
 }
 
 function day() {
