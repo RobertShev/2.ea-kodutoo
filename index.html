@@ -4,16 +4,16 @@
     <title>typer</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="app.css">
-    <script src="app.js"></script>
   </head>
   <body id="body" class="dayLight">   
    <div id = 'startPage'>
       <h1 class="noMarginBelow">Menu</h1>
       <a href = '#' onclick = "document.getElementById('startPage').style.display='none'; document.getElementById('gamePage').style.display='block';startGame()">Start Game</a><br>
-      <a href = '#' onclick = "document.getElementById('startPage').style.display='none'; document.getElementById('resultPage').style.display='block';">Top Results</a><br>
+      <a href = '#' onclick = "document.getElementById('startPage').style.display='none'; document.getElementById('resultPage').style.display='block';showResults()">Top Results</a><br>
       <div class="name" id="name">Name: <br /><input type="text" id="gamerName"></div>
     </div>
     <div id = 'gamePage' style='display: none'>
+      <script src="app.js"></script>
       <div id="timeLeft" class="currentTime"></div>
       <div id="result" class ="currentResult"></div>
       <canvas id="canvas"></canvas>  
@@ -21,7 +21,7 @@
       <div id="result" class ="currentResult"></div>
     </div>
     <div id = 'resultPage' style='display: none'>
-      <div id="record"></div>
+      <div id="record0"></div>
       <div id="record1"></div>
       <div id="record2"></div>
       <div id="record3"></div>

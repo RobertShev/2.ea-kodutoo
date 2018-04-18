@@ -3,7 +3,7 @@ let helpDate = new Date();
 let helpTime = helpDate.getTime()/1000;
 
 function reviewLocalStorage(){
-  for (let l = 1; l<11; l++) {
+  for (var l = 1; l<11; l++) {
     if ((localStorage.getItem('result' + l)) == 'null' || (localStorage.getItem('result' + l)) == 0) {
       localStorage.setItem('result' + l,0);
       localStorage.setItem('resultShow' + l, "unknown");
@@ -26,22 +26,23 @@ function result (){
       }
     })
     if (timeLeft>29){
-      for (let i = 1; i< 11; i++){
-        if (Number(gameResult) > localStorage.getItem('result'+1)){
-          for (let j = 1; j < (11-j); j++){
+      for (var i = 1; i< 11; i++){
+        if (Number(gameResult) > localStorage.getItem('result'+i)){
+          for (var j = 1; j < (11-j); j++){
             localStorage.setItem('result'+(11-j), localStorage.getItem('result'+(10-j)));
             localStorage.setItem('resultShow'+(11-j), localStorage.getItem('resultShow' + (10-j)));
           }
           localStorage.setItem('result'+i,Number(gameResult));
           localStorage.setItem('resultShow'+i, document.getElementById('gamerName').value);
+          gamerNameAlert = i;
           solvedWords = 0;
           break;
         }
       }
       clearInterval(update);
-      alert("Game is over "+ localStorage.getItem('resultShow1') +", your result is " + gameResult + " points");
+      alert("Game is over "+ document.getElementById('gamerName').value +", your result is " + gameResult + " points");
     }
-  })
+  }, 1);
 }
 
 function randomiseFont(){
@@ -55,7 +56,16 @@ function randomiseFont(){
 function showResults(){
   //add results to result page from localstorage
   reviewLocalStorage();
-  document.getElementById('record0').innerHTML = localStorage.getItem('result1') + " did " + localStorage.getItem('resultShow1');
+  document.getElementById('record0').innerHTML = localStorage.getItem('result1') + " points did " + localStorage.getItem('resultShow1');
+  document.getElementById('record1').innerHTML = localStorage.getItem('result2') + " points did " + localStorage.getItem('resultShow2');
+  document.getElementById('record2').innerHTML = localStorage.getItem('result3') + " points did " + localStorage.getItem('resultShow3');
+  document.getElementById('record3').innerHTML = localStorage.getItem('result4') + " points did " + localStorage.getItem('resultShow4');
+  document.getElementById('record4').innerHTML = localStorage.getItem('result5') + " points did " + localStorage.getItem('resultShow5');
+  document.getElementById('record5').innerHTML = localStorage.getItem('result6') + " points did " + localStorage.getItem('resultShow6');
+  document.getElementById('record6').innerHTML = localStorage.getItem('result7') + " points did " + localStorage.getItem('resultShow7');
+  document.getElementById('record7').innerHTML = localStorage.getItem('result8') + " points did " + localStorage.getItem('resultShow8');
+  document.getElementById('record8').innerHTML = localStorage.getItem('result9') + " points did " + localStorage.getItem('resultShow9');
+  document.getElementById('record9').innerHTML = localStorage.getItem('result10') + " points did " + localStorage.getItem('resultShow10');
 
 }
 
@@ -68,7 +78,7 @@ function startGame(){
   result();
 }
 function dayNight(){
-      let currentTime = new Date().getHours();
+    let currentTime = new Date().getHours();
     if (7 <= currentTime && currentTime < 20) {
         if (document.body.className = "day") {
             document.body.background = "https://images.unsplash.com/photo-1498932042873-e35fb6535a02?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=48808e8a3f27b79d9c17e6d69e6a3dfd&auto=format&fit=crop&w=1426&q=80";
