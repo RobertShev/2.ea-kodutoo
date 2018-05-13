@@ -17,7 +17,17 @@ Skoori arvutuskäik
     Sõna pikkus korrutatud lahendatud sõnade arvule ja jäänud aja vahe on saadavad punktid. valem: ((sõnapikus * lahendatudsõnade arv) - jäänud aeg).
     Mängijale antakse 30 sekundit. Selle aja jooksul on vaja sisestada kogu aeg sõnu ja kinnitada neid vajutades enterile. Kui mängija ei tee midagi siis skoor läheb miinus arvudesse.
 ## Pildid ja skeemid
+![](Images/2018-05-13%20(1).png)
+Start Screen
 
+![](Images/2018-05-13%20(2).png)
+Game Screen
+
+![](Images/2018-05-13.png)
+Result Screen
+
+![](Images/2018-05-13%20(4).png)
+Current game result popup and night mode
 ## Nõuded
 
 1. Töö tuleb teha vähemalt kahekesi, eelnevalt kokkuleppel on lubatud ka kolm liiget. GitHub'is peab eristuma, kes mida tegi!
